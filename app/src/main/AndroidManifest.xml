@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.DoYourChores"
+        android:name="dev.smallcat.doyourchores.DYCApp"
         tools:targetApi="31">
         <activity
-            android:name="com.example.doyourchores.MainActivity"
+            android:name="dev.smallcat.doyourchores.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.DoYourChores">
