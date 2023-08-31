@@ -1,9 +1,9 @@
-package dev.smallcat.doyourchores.repository.room
+package dev.smallcat.doyourchores.data.repository.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import dev.smallcat.doyourchores.repository.room.Constants.Companion.CHORE_TABLE
+import dev.smallcat.doyourchores.data.repository.room.Constants.Companion.CHORE_TABLE
 
 
 @Entity(tableName = CHORE_TABLE)

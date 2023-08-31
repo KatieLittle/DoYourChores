@@ -10,14 +10,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.smallcat.compose.DoYourChoresTheme
-import dev.smallcat.doyourchores.domain.Chore
-import dev.smallcat.doyourchores.enums.DueState
+import dev.smallcat.doyourchores.domain.models.Chore
+import dev.smallcat.doyourchores.commonmodels.enums.DueState
+import dev.smallcat.doyourchores.ui.di.viewModelFactory
 import dev.smallcat.myapplication.R
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, homeVM: HomeViewModel =  hiltViewModel()) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    homeVM: HomeViewModel = viewModel (
+        factory = viewModelFactory { HomeViewModel() }
+    )
+) {
 
     val state by remember{homeVM.state}
     Surface(

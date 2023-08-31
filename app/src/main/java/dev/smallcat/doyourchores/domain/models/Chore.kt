@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.domain
+package dev.smallcat.doyourchores.domain.models
 
 data class Chore (
     val name: String,

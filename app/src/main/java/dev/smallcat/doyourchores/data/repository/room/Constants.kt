@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.repository.room
+package dev.smallcat.doyourchores.data.repository.room
 
 class Constants {
     companion object {
