@@ -14,9 +14,9 @@ interface AppModule {
 class AppModuleImpl(
     private val appContext: Context,
 ) : AppModule {
-    override val choreRoomModule: ChoreRoomModule by lazy {
-        ChoreRoomModuleImpl(appContext)
-    }
+    override val choreRoomModule: ChoreRoomModule
+        get() = ChoreRoomModuleImpl(appContext)
+
     override val fetchAllChoresUseCase: FetchAllChoresUseCase
         get() = FetchAllChoresUseCaseImpl(ChoreRepoRoomImpl(choreRoomModule.dao))
 }
