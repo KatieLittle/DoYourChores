@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.ui.home
+package dev.smallcat.doyourchores.ui.screens.home
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import dev.smallcat.doyourchores.domain.FetchAllChoresUseCase
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    fetchAllChoresUseCase: FetchAllChoresUseCase = DYCApp.appModule.fetchAllChoresUseCase
+    fetchAllChoresUseCase: FetchAllChoresUseCase = DYCApp.choreModule.fetchAllChoresUseCase
 ) : ViewModel() {
 
     private val _state = mutableStateOf(HomeUIState())

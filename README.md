@@ -1,1 +1,1 @@
-INSERT INTO CHORES_TABLE (name, description,timeBetweenInDays) VALUES ("hoover", "I mean it's hoovering", 3.0)
+INSERT INTO CHORE_TABLE (name, description,timeBetweenInDays) VALUES ("hoover", "I mean it's hoovering", 3.0)

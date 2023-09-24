@@ -5,4 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ChoreRepository {
     fun getAllChores(): Flow<List<Chore>>
+    suspend fun addChore(chore : Chore)
 }

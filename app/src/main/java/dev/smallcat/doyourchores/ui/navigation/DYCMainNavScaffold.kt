@@ -11,7 +11,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dev.smallcat.compose.DoYourChoresTheme
-import dev.smallcat.doyourchores.ui.home.HomeScreen
+import dev.smallcat.doyourchores.ui.screens.chores.ChoresScreen
+import dev.smallcat.doyourchores.ui.screens.home.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -19,8 +20,9 @@ fun DYCScaffold() {
 
     val navController = rememberNavController()
 
+    fun onBack() = navController.popBackStack()
+
     Scaffold(
-        topBar = { DYCTopBar(navController) },
         bottomBar = {
             BottomMenu(navController)
         }
@@ -30,37 +32,18 @@ fun DYCScaffold() {
             startDestination = BottomNavMenuItem.HOME.route,
             modifier = Modifier.padding(it)
         ) {
-            composable(BottomNavMenuItem.HOME.route) { HomeScreen() }
-            composable(BottomNavMenuItem.CHORES.route) { }
+            composable(BottomNavMenuItem.HOME.route) { HomeScreen(onBack = ::onBack) }
+            composable(BottomNavMenuItem.CHORES.route) { ChoresScreen(onBack = ::onBack) }
             composable(BottomNavMenuItem.PROFILE.route) { }
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun DYCTopBar(navController: NavHostController) {
-    CenterAlignedTopAppBar(
-        title = {
-            Surface {
-                Text(text = "Home")
-            }
-        },
-        actions = {
-            IconButton(onClick = { navController.navigate(BottomNavMenuItem.PROFILE.route) }) {
-                Icon(
-                    painterResource(id = BottomNavMenuItem.PROFILE.iconID),
-                    contentDescription = BottomNavMenuItem.PROFILE.displayName
-                )
-            }
-        }
-    )
-}
 
 @Composable
 fun BottomMenu(navController: NavHostController, modifier: Modifier = Modifier){
 
-    var selectedItemIndex by remember{ mutableStateOf(0)}
+    var selectedItemIndex by remember{ mutableIntStateOf(0) }
     val items = BottomNavMenuItem.values()
 
     NavigationBar(

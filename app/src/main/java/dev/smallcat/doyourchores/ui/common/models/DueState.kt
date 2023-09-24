@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.commonmodels.enums
+package dev.smallcat.doyourchores.ui.common.models
 
 enum class DueState {
     UPCOMING,

@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.ui.di
+package dev.smallcat.doyourchores.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

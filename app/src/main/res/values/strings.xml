@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DoYourChores</string>
+    <string name="title_chores">Chores</string>
+    <string name="title_home">Home</string>
 </resources>
