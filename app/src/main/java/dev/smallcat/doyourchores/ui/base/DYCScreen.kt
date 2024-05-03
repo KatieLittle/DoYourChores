@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.ui.common
+package dev.smallcat.doyourchores.ui.base
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

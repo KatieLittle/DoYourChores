@@ -1,0 +1,18 @@
+[versions]
+androidxComposeBom = "2024.05.00"
+androidxCore = '1.10.1'
+androidxLifecycle = '2.6.1'
+androidxNavigation = '2.7.1'
+androidxActivity = '1.7.2'
+androidxRoom = '2.5.2'
+
+[libraries]
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-foundation = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-foundation = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-foundation = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-foundation = { group = "androidx.compose.material3", name = "material3" }
+
+[bundles]
+
+[plugins]

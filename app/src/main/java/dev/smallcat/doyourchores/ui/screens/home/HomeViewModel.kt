@@ -5,7 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.smallcat.doyourchores.DYCApp
 import dev.smallcat.doyourchores.domain.FetchAllChoresUseCase
+import dev.smallcat.doyourchores.common.models.Chore
 import kotlinx.coroutines.launch
+data class HomeUIState(
+    val chores: List<Chore> = listOf()
+)
 
 class HomeViewModel(
     fetchAllChoresUseCase: FetchAllChoresUseCase = DYCApp.choreModule.fetchAllChoresUseCase

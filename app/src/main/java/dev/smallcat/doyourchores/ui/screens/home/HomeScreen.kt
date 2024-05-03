@@ -10,10 +10,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.smallcat.compose.DoYourChoresTheme
-import dev.smallcat.doyourchores.ui.common.DYCScreen
+import com.example.compose.AppTheme
+import dev.smallcat.doyourchores.ui.base.DYCScreen
 import dev.smallcat.doyourchores.di.viewModelFactory
-import dev.smallcat.doyourchores.ui.common.ChoreList
+import dev.smallcat.doyourchores.ui.components.ChoreList
 import dev.smallcat.doyourchores.ui.screens.home.views.Dashboard
 import dev.smallcat.myapplication.R
 
@@ -63,7 +63,7 @@ fun HomeScreenContent(
 @Preview
 @Composable
 private fun DefaultLightPreview() {
-    DoYourChoresTheme {
+    AppTheme {
         Surface {
             HomeScreenContent(state = HomeUIState())
         }
@@ -73,7 +73,7 @@ private fun DefaultLightPreview() {
 @Preview
 @Composable
 private fun DefaultDarkPreview() {
-    DoYourChoresTheme(true) {
+    AppTheme(true) {
         Surface {
             HomeScreenContent(state = HomeUIState())
         }

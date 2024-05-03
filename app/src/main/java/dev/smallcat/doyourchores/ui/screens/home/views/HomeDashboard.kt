@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.smallcat.compose.DoYourChoresTheme
+import com.example.compose.AppTheme
 
 @Composable
 fun Dashboard(modifier: Modifier = Modifier) {
@@ -45,7 +45,7 @@ fun DashboardItem(count: String, stateWord: String, modifier: Modifier = Modifie
 @Preview
 @Composable
 private fun DefaultLightPreview() {
-    DoYourChoresTheme {
+    AppTheme {
         Surface {
             Dashboard()
         }
@@ -55,7 +55,7 @@ private fun DefaultLightPreview() {
 @Preview
 @Composable
 private fun DefaultDarkPreview() {
-    DoYourChoresTheme(true) {
+    AppTheme(true) {
         Surface {
             Dashboard()
         }

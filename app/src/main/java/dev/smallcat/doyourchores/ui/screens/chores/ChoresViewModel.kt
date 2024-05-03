@@ -4,17 +4,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.smallcat.doyourchores.DYCApp
-import dev.smallcat.doyourchores.domain.AddChoreUseCase
 import dev.smallcat.doyourchores.domain.FetchAllChoresUseCase
-import dev.smallcat.doyourchores.domain.models.Chore
+import dev.smallcat.doyourchores.common.models.Chore
 import kotlinx.coroutines.launch
-
+data class ChoresUIState(
+    val chores: List<Chore> = listOf(),
+    val showAddChorePopup: Boolean = false
+)
 sealed class ChoreScreenUIEvent {
-    data class OpenAddChoreForm(val chore: Chore): ChoreScreenUIEvent()
+    data object OpenAddChoreForm: ChoreScreenUIEvent()
+    data object CloseAddChoreForm: ChoreScreenUIEvent()
 }
 class ChoresViewModel(
     fetchAllChoresUseCase: FetchAllChoresUseCase = DYCApp.choreModule.fetchAllChoresUseCase,
-    val addChoreUseCase: AddChoreUseCase = DYCApp.choreModule.addChoreUseCase
 ) : ViewModel() {
 
     private val _state = mutableStateOf(ChoresUIState())
@@ -30,15 +32,18 @@ class ChoresViewModel(
 
     fun onEvent(event: ChoreScreenUIEvent) {
         when(event) {
-            is ChoreScreenUIEvent.OpenAddChoreForm -> handleOpenAddChoreForm(event.chore)
+            is ChoreScreenUIEvent.OpenAddChoreForm -> handleOpenAddChoreForm()
+            is ChoreScreenUIEvent.CloseAddChoreForm -> handleCloseAddChoreForm()
         }
     }
 
-    private fun handleOpenAddChoreForm(chore: Chore) {
-        viewModelScope.launch {
-            addChoreUseCase(chore)
-        }
+
+    private fun handleCloseAddChoreForm() {
+        _state.value = _state.value.copy(showAddChorePopup = false)
     }
 
+    private fun handleOpenAddChoreForm() {
+        _state.value = _state.value.copy(showAddChorePopup = true)
+    }
 
 }

@@ -2,4 +2,11 @@
     <string name="app_name">DoYourChores</string>
     <string name="title_chores">Chores</string>
     <string name="title_home">Home</string>
+    <string name="title_add_chore">Add Chore</string>
+    <string name="label_save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="name_input_label">Name</string>
+    <string name="description_input_label">Description</string>
+    <string name="days_between_input_label">Days between</string>
+    <string name="last_done_input_label">Last done</string>
 </resources>

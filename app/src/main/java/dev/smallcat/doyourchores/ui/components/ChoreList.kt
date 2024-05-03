@@ -1,4 +1,4 @@
-package dev.smallcat.doyourchores.ui.common
+package dev.smallcat.doyourchores.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,9 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import dev.smallcat.compose.DoYourChoresTheme
-import dev.smallcat.doyourchores.ui.common.models.DueState
-import dev.smallcat.doyourchores.domain.models.Chore
+import com.example.compose.AppTheme
+import dev.smallcat.doyourchores.common.models.DueState
+import dev.smallcat.doyourchores.common.models.Chore
 import dev.smallcat.myapplication.R
 
 @Composable
@@ -28,13 +28,18 @@ fun ChoreList(modifier: Modifier = Modifier, list: List<Chore>) {
         modifier = modifier.fillMaxWidth()
     ) {
         list.forEach{
-            ChoreCard(it.name, "Yesterday", DueState.OVERDUE)
+            ChoreCard(it.name, it.dueDateDescription, it.dueState)
         }
     }
 }
 
 @Composable
-private fun ChoreCard(choreName: String, due: String, dueState: DueState, modifier: Modifier = Modifier) {
+private fun ChoreCard(
+    choreName: String,
+    due: String,
+    dueState: DueState,
+    modifier: Modifier = Modifier
+) {
 
     val backgroundColour = when (dueState) {
         DueState.UPCOMING -> MaterialTheme.colorScheme.surfaceVariant
@@ -82,7 +87,7 @@ private fun ChoreCard(choreName: String, due: String, dueState: DueState, modifi
 @Preview
 @Composable
 private fun DefaultLightPreview() {
-    DoYourChoresTheme {
+    AppTheme {
         Surface {
             ChoreList(list = listOf())
         }
@@ -92,7 +97,7 @@ private fun DefaultLightPreview() {
 @Preview
 @Composable
 private fun DefaultDarkPreview() {
-    DoYourChoresTheme(true) {
+    AppTheme(true) {
         Surface {
             ChoreList(list = listOf())
         }

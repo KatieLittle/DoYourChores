@@ -10,7 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.smallcat.compose.DoYourChoresTheme
+import com.example.compose.AppTheme
 import dev.smallcat.doyourchores.ui.screens.chores.ChoresScreen
 import dev.smallcat.doyourchores.ui.screens.home.HomeScreen
 
@@ -70,7 +70,7 @@ fun BottomMenu(navController: NavHostController, modifier: Modifier = Modifier){
 @Preview
 @Composable
 fun Preview_scaffold_light() {
-    DoYourChoresTheme {
+    AppTheme {
         DYCScaffold()
     }
 }
@@ -78,7 +78,7 @@ fun Preview_scaffold_light() {
 @Preview
 @Composable
 fun Preview_scaffold_dark() {
-    DoYourChoresTheme(true) {
+    AppTheme(true) {
         DYCScaffold()
     }
 }
